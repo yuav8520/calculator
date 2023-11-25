@@ -1,0 +1,40 @@
+#calculator{margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    height: 500px;
+    width: 400px;
+    border: solid black;
+    display: flex;
+    flex-direction: column;
+}
+#numbers{
+    display: flex;
+}
+#display{
+    margin-top: 20px;
+    width: 360px;
+    align-self: center;
+    height: 150px;
+    border: solid black;
+    border-width: 2px;
+    background-color: greenyellow;
+    border-radius: 20px;
+}
+#mind > *{
+    background-color: greenyellow;
+    flex: auto;
+    
+}
+#mind{
+    display: flex;
+    width: 360px;
+    align-self: center;
+    margin-top: 30px;
+  
+}
+#operators{
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+}
