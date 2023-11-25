@@ -1,8 +1,16 @@
-
+    const display=document.querySelector('#display');
     const calculator=document.querySelector('#calculator')
     const numbers=document.querySelector('#numbers')
     const mind=document.querySelector('#mind')
     const operators=document.querySelector('#operators')
+    let num1=0;
+    let num2=0;
+    const operatorsSigns = ['*','-','+','/'];
+    let allnumbers;
+    let operator;
+    const isOperator=function (operator){
+        operatorsSigns.includes(operator)
+    };
     const add = function(num1,num2) {
         return num1+num2;
     };
@@ -32,12 +40,38 @@
         for (let j = 1; j <= 3; j++) {
             const gridItem=document.createElement('button');
             column.append(gridItem)
-            gridItem.classList.add("number");
+            gridItem.classList.add('number');
             gridItem.textContent=i*3+j
+           gridItem.setAttribute('id',gridItem.textContent)
+           //gridItem.addEventListener('click',()=>{
+           //(isOperator(display.textContent))? num2=i*3+j:num1=i*3+j
+          // display.textContent=display.textContent*10+i*3+j
+
+         //  });
             
         }
-        
-    }
+     }
 
     }
+    //needs to remove addeventlisnter in grid creatin and add number in here too
+           document.addEventListener('click',(e)=>{
+            const pressed=e.target.textContent;
+         if  (isOperator(pressed)) 
+         {operator=pressed;
+            display.textContent=operator;}
+         else {if(pressed=='=')
+            {display.textContent=calculatorOperation(num1,operator,num2)
+           operator='=';
+         }
+         else{if(!isNaN(pressed))
+          {(isOperator(display.textContent))? num2=pressed:num1=pressed
+          display.textContent=display.textContent+pressed;
+                    
+          }
+           }  
+           console.log(pressed);
+           console.log(operator);
+        }});
+    //function for on click late add in in gridcacnum
+    
     gridCaculatorNumbers();
