@@ -5,11 +5,11 @@
     const operators=document.querySelector('#operators')
     let num1=0;
     let num2=0;
-    const operatorsSigns = ['*','-','+','/'];
+    const operatorsSigns = ['×','-','+','÷'];
     let allnumbers;
     let operator;
     const isOperator=function (operator){
-        operatorsSigns.includes(operator)
+      return  operatorsSigns.includes(operator)
     };
     const add = function(num1,num2) {
         return num1+num2;
@@ -58,20 +58,25 @@
             const pressed=e.target.textContent;
          if  (isOperator(pressed)) 
          {operator=pressed;
-            display.textContent=operator;}
-         else {if(pressed=='=')
+            display.textContent=pressed;
+        }
+         if(pressed=='=')
             {display.textContent=calculatorOperation(num1,operator,num2)
            operator='=';
          }
-         else{if(!isNaN(pressed))
+         if(+pressed>=0&&+pressed<=9)
           {(isOperator(display.textContent))? num2=pressed:num1=pressed
           display.textContent=display.textContent+pressed;
                     
           }
-           }  
+             
            console.log(pressed);
-           console.log(operator);
-        }});
+           console.log(isOperator(pressed));
+           //console.log(num1+' '+num2);
+           //console.log(isOperator(display.textContent))
+          // console.log(+pressed>=0&&+pressed<=9);
+           
+        } );
     //function for on click late add in in gridcacnum
     
     gridCaculatorNumbers();
