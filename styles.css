@@ -7,9 +7,14 @@
     border: solid black;
     display: flex;
     flex-direction: column;
+    background-color: black;
 }
-#numbers{
+#oneTo9{
     display: flex;
+}
+button{
+    border-radius: 20px;
+    background-color: burlywood;
 }
 #display{
     margin-top: 20px;
@@ -20,6 +25,8 @@
     border-width: 2px;
     background-color: greenyellow;
     border-radius: 20px;
+    text-align: center;
+   
 }
 #mind > *{
     background-color: greenyellow;
@@ -38,8 +45,27 @@
     flex-direction: column;
     background-color: blue;
 }
+#operators > *{
+    margin-top: 20px;
+}
 
 #clear{
     align-self: center;
+    margin-top: 20px;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    justify-content: space-between;
+    margin-left: 20px;
+    
+}
+#number0{
+    margin-left: 20px;
+    width: 130px;
+    margin-top: 20px;
+}
+.number{
     margin-top: 20px;
 }
