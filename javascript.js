@@ -9,23 +9,33 @@
     const operatorsSigns = ['×','-','+','÷'];
     let allnumbers;
     let operator;
+    const clear= function()
+    {
+        num1=0;
+        num2=0;
+        operator=null;
+        display.textContent=null;
+    }
     const isOperator=function (operator){
       return  operatorsSigns.includes(operator)
     };
     const add = function(num1,num2) {
-        return +num1+(+num2);
+        return (+num1+(+num2)).toFixed(2);
     };
     
     const subtract = function(num1,num2) {
-        return +num1-(+num2);
+        return (+num1-(+num2)).toFixed(2);
     };
     const divide= function(num1,num2)
     {
-        return +num1/(+num2);
+       if (num2==0) { clear()
+        return "sneaky picky like."   
+       }
+       return (+num1/(+num2)).toFixed(2);
     }
     const multiply= function(num1,num2)
     {
-        return +num1*(+num2);
+        return (+num1*(+num2).toFixed(2));
     }
     const calculatorOperation=function(num1,operator,num2)
     {if (operator=='+') return add(num1,num2);
@@ -60,18 +70,23 @@
      zero.textContent=0;
      zero.setAttribute('id','number0');
     }
-    //needs to remove addeventlisnter in grid creatin and add number in here too
+
            document.addEventListener('click',(e)=>{
             const pressed=e.target.textContent;
          if  (isOperator(pressed))//if an operator is pressed 
-         {  //if(operator==null)
+         {  if(operator!=null)//if user hasnt preesed =
+         {num1=calculatorOperation(num1,operator,num2);
+            display.textContent=num1+''+pressed;
+            num2=0;
             operator=pressed;
+         }
+            else{operator=pressed;
             display.textContent=pressed;
-        }
+        }}
          if(pressed=='=')//if = is pressed
             {display.textContent=calculatorOperation(num1,operator,num2)
            num1=display.textContent;
-           num2=0
+           num2=0;
            operator=null;
          }
          if(+pressed>=0&&+pressed<10)//if a number is pressed
@@ -96,10 +111,7 @@
         }                 
           }
            if(pressed=='clear')
-           {num1=0;
-            num2=0;
-            operator=null;
-            display.textContent=null;
+           {clear();
            }
         } );
     //function for on click late add in in gridcacnum
