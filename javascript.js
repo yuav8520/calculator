@@ -89,8 +89,9 @@
            num2=0;
            operator=null;
          }
-         if(+pressed>=0&&+pressed<10)//if a number is pressed
-          {if(isOperator(operator)){
+         if (+pressed >= 0 && +pressed < 10 && e.target.classList.contains('number'))//if a number is pressed
+         {//last and checks if a number was pressed and not the display
+            if(isOperator(operator)){
 
             if (num2>0) {
                 num2=num2+pressed;
@@ -117,4 +118,3 @@
     //function for on click late add in in gridcacnum
     
     gridCaculatorNumbers();
-//
