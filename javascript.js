@@ -87,23 +87,28 @@
             {display.textContent=calculatorOperation(num1,operator,num2)
            num1=display.textContent;
            num2=0;
-           operator=null;
-         }
-         if (+pressed >= 0 && +pressed < 10 && e.target.classList.contains('number'))//if a number is pressed
-         {//last and checks if a number was pressed and not the display
-            if(isOperator(operator)){
+           operator='=';
 
-            if (num2>0) {
+         }
+        if (+pressed >= 0 && +pressed < 10 && e.target.classList.contains('number'))//if a number is pressed
+  {//last and checks if a number was pressed and not the display
+   
+            if(isOperator(operator)&&operator!='='){
+            if (num2>0) {    //אם מוסיפים מס למס 2
                 num2=num2+pressed;
                 display.textContent=num2;
             }
             else{
-            num2=pressed;
+                
+            num2=pressed;//אם זה מספר ראשון למס 2
             display.textContent=pressed;
           }
         }
+
           else{
+            if(operator=='=')  clear();//wants to reset      
             if(display.textContent>0){
+
                 num1=num1+pressed;
                 display.textContent=num1
             } 
